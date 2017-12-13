@@ -82,10 +82,16 @@ public class Principal extends javax.swing.JFrame {
         nacidosReporte = new javax.swing.JMenuItem();
         Matrimonios = new javax.swing.JMenu();
         MatrimoniosNuevos = new javax.swing.JMenuItem();
-        jMenuItem1 = new javax.swing.JMenuItem();
+        MatrimoniosReporte = new javax.swing.JMenuItem();
         Historicos = new javax.swing.JMenu();
-        MovMensuales = new javax.swing.JMenuItem();
-        MovAnuales = new javax.swing.JMenuItem();
+        defuncionesDef = new javax.swing.JMenuItem();
+        DefuncionesReporte = new javax.swing.JMenuItem();
+        DivorciosDivorcios = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        DivorciosReporte = new javax.swing.JMenuItem();
+        Cedulas = new javax.swing.JMenu();
+        CedulasCedulas = new javax.swing.JMenuItem();
+        CedulasReporte = new javax.swing.JMenuItem();
         Administracion = new javax.swing.JMenu();
         AdminUsuarios = new javax.swing.JMenuItem();
         Respaldos = new javax.swing.JMenuItem();
@@ -97,7 +103,8 @@ public class Principal extends javax.swing.JFrame {
         skin3 = new javax.swing.JMenuItem();
         skin4 = new javax.swing.JMenuItem();
         skin5 = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
+        jMenu3 = new javax.swing.JMenu();
+        jMenuItem2 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -287,8 +294,13 @@ public class Principal extends javax.swing.JFrame {
         });
         Matrimonios.add(MatrimoniosNuevos);
 
-        jMenuItem1.setText("jMenuItem1");
-        Matrimonios.add(jMenuItem1);
+        MatrimoniosReporte.setText("Reporte");
+        MatrimoniosReporte.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MatrimoniosReporteActionPerformed(evt);
+            }
+        });
+        Matrimonios.add(MatrimoniosReporte);
 
         jMenuBar1.add(Matrimonios);
 
@@ -296,23 +308,53 @@ public class Principal extends javax.swing.JFrame {
         Historicos.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         Historicos.setPreferredSize(new java.awt.Dimension(120, 20));
 
-        MovMensuales.setText("Mov Mensuales");
-        MovMensuales.addActionListener(new java.awt.event.ActionListener() {
+        defuncionesDef.setText("Defunciones");
+        defuncionesDef.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                MovMensualesActionPerformed(evt);
+                defuncionesDefActionPerformed(evt);
             }
         });
-        Historicos.add(MovMensuales);
+        Historicos.add(defuncionesDef);
 
-        MovAnuales.setText("Mov. Anuales");
-        MovAnuales.addActionListener(new java.awt.event.ActionListener() {
+        DefuncionesReporte.setText("Reporte");
+        DefuncionesReporte.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                MovAnualesActionPerformed(evt);
+                DefuncionesReporteActionPerformed(evt);
             }
         });
-        Historicos.add(MovAnuales);
+        Historicos.add(DefuncionesReporte);
 
         jMenuBar1.add(Historicos);
+
+        DivorciosDivorcios.setText("Divorcios");
+
+        jMenuItem1.setText("Divorcios");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        DivorciosDivorcios.add(jMenuItem1);
+
+        DivorciosReporte.setText("Reporte");
+        DivorciosReporte.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DivorciosReporteActionPerformed(evt);
+            }
+        });
+        DivorciosDivorcios.add(DivorciosReporte);
+
+        jMenuBar1.add(DivorciosDivorcios);
+
+        Cedulas.setText("Cedulas");
+
+        CedulasCedulas.setText("Cedulas");
+        Cedulas.add(CedulasCedulas);
+
+        CedulasReporte.setText("Reporte");
+        Cedulas.add(CedulasReporte);
+
+        jMenuBar1.add(Cedulas);
 
         Administracion.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         Administracion.setText("Configuracion");
@@ -413,10 +455,14 @@ public class Principal extends javax.swing.JFrame {
         });
         Skin.add(skin5);
 
-        jMenu2.setText("jMenu2");
-        Skin.add(jMenu2);
-
         jMenuBar1.add(Skin);
+
+        jMenu3.setText("Acerca de");
+
+        jMenuItem2.setText("Pereira Computer Services");
+        jMenu3.add(jMenuItem2);
+
+        jMenuBar1.add(jMenu3);
 
         setJMenuBar(jMenuBar1);
 
@@ -455,14 +501,32 @@ public class Principal extends javax.swing.JFrame {
 
     private void AdminUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdminUsuariosActionPerformed
         // TODO add your handling code here:
+       UsuariosCrud usuariosCrud = new UsuariosCrud();
+        jDesktopPane1.add(usuariosCrud);
+        jDesktopPane1.getDesktopManager().maximizeFrame(usuariosCrud);
+        usuariosCrud.setVisible(true);
+        usuariosCrud.setIconifiable(true);
+        usuariosCrud.setMaximizable(true);
+        usuariosCrud.setClosable(true);
+        usuariosCrud.setResizable(true);
+        usuariosCrud.toFront();
       
     }//GEN-LAST:event_AdminUsuariosActionPerformed
 
-    private void MovMensualesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MovMensualesActionPerformed
+    private void defuncionesDefActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_defuncionesDefActionPerformed
         // TODO add your handling code here:
+         FallecidosCRUD fallecidosCRUD = new FallecidosCRUD();
+        jDesktopPane1.add(fallecidosCRUD);
+        jDesktopPane1.getDesktopManager().maximizeFrame(fallecidosCRUD);
+        fallecidosCRUD.setVisible(true);
+        fallecidosCRUD.setIconifiable(true);
+        fallecidosCRUD.setMaximizable(true);
+        fallecidosCRUD.setClosable(true);
+        fallecidosCRUD.setResizable(true);
+        fallecidosCRUD.toFront();
      
         
-    }//GEN-LAST:event_MovMensualesActionPerformed
+    }//GEN-LAST:event_defuncionesDefActionPerformed
 
     private void RespaldosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RespaldosActionPerformed
         // TODO add your handling code here:
@@ -583,19 +647,38 @@ public class Principal extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jLabel4MouseClicked
 
-    private void MovAnualesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MovAnualesActionPerformed
-        // TODO add your handling code here:
-//           HistoricoCompras historicoCompras = new HistoricoCompras();
-//        jDesktopPane1.add(historicoCompras);
-//        //jDesktopPane1.getDesktopManager().maximizeFrame(empresas);
-//        historicoCompras.setVisible(true);
-//        historicoCompras.setIconifiable(true);
-//        historicoCompras.setMaximizable(true);
-//        historicoCompras.setClosable(true);
-//        historicoCompras.setResizable(true);
-//        historicoCompras.toFront();
+    private void DefuncionesReporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DefuncionesReporteActionPerformed
+  Connection conn = null;
+        PreparedStatement prepSt = null;
+        Statement st = null;
+        ResultSet rs = null;
+        try {
+            conn = getConnection("jdbc:postgresql://192.168.1.10:5432/alcaldiadb", "postgres", "root");
+        } catch (SQLException ex) {
+            showMessageDialog(this, "No hay conexion a server\n");
+        }
+        try {
+            JasperReport reporte = (JasperReport) loadObjectFromFile("Reportes\\Fallecidos.jasper");
+            Map valores = new HashMap();
+//        valores.put ( "MES" , mes );
+//        valores.put ( "ANNO" , anno );
+//        valores.put ( "IDEMPRESA" , idEmpresa1 );
+        JasperPrint jasperPrint = fillReport(reporte, valores, conn);
+        JasperViewer viewer = new JasperViewer(jasperPrint, false);
+        viewer.toFront();
+        viewer.setTitle("Reporte Partidas de Fallecidos");
+        viewer.setSize(900, 600);
+        viewer.setVisible(true);
+        } catch (JRException ex) {
+            showMessageDialog(this,"No encuentro archivo de Reporte");
+        }
+        try {
+            conn.close();
+        } catch (SQLException ex) {
+            showMessageDialog(this,"Error en Base de datos");
+        }
         
-    }//GEN-LAST:event_MovAnualesActionPerformed
+    }//GEN-LAST:event_DefuncionesReporteActionPerformed
 
     private void skin1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_skin1ActionPerformed
 //        try {
@@ -681,7 +764,7 @@ public class Principal extends javax.swing.JFrame {
         JasperPrint jasperPrint = fillReport(reporte, valores, conn);
         JasperViewer viewer = new JasperViewer(jasperPrint, false);
         viewer.toFront();
-        viewer.setTitle("Reporte ventas a Consumidor Final");
+        viewer.setTitle("Reporte Partidas de Nacimiento");
         viewer.setSize(900, 600);
         viewer.setVisible(true);
         } catch (JRException ex) {
@@ -693,6 +776,85 @@ public class Principal extends javax.swing.JFrame {
             showMessageDialog(this,"Error en Base de datos");
         }
     }//GEN-LAST:event_nacidosReporteActionPerformed
+
+    private void MatrimoniosReporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MatrimoniosReporteActionPerformed
+        // TODO add your handling code here:
+        Connection conn = null;
+        PreparedStatement prepSt = null;
+        Statement st = null;
+        ResultSet rs = null;
+        try {
+            conn = getConnection("jdbc:postgresql://192.168.1.10:5432/alcaldiadb", "postgres", "root");
+        } catch (SQLException ex) {
+            showMessageDialog(this, "No hay conexion a server\n");
+        }
+        try {
+            JasperReport reporte = (JasperReport) loadObjectFromFile("Reportes\\Matrimonios.jasper");
+            Map valores = new HashMap();
+//        valores.put ( "MES" , mes );
+//        valores.put ( "ANNO" , anno );
+//        valores.put ( "IDEMPRESA" , idEmpresa1 );
+        JasperPrint jasperPrint = fillReport(reporte, valores, conn);
+        JasperViewer viewer = new JasperViewer(jasperPrint, false);
+        viewer.toFront();
+        viewer.setTitle("Reporte Partidas de Matrimonios");
+        viewer.setSize(900, 600);
+        viewer.setVisible(true);
+        } catch (JRException ex) {
+            showMessageDialog(this,"No encuentro archivo de Reporte");
+        }
+        try {
+            conn.close();
+        } catch (SQLException ex) {
+            showMessageDialog(this,"Error en Base de datos");
+        }
+    }//GEN-LAST:event_MatrimoniosReporteActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        // TODO add your handling code here:
+         DivorciosCRUD divorciosCRUD = new DivorciosCRUD();
+        jDesktopPane1.add(divorciosCRUD);
+        jDesktopPane1.getDesktopManager().maximizeFrame(divorciosCRUD);
+        divorciosCRUD.setVisible(true);
+        divorciosCRUD.setIconifiable(true);
+        divorciosCRUD.setMaximizable(true);
+        divorciosCRUD.setClosable(true);
+        divorciosCRUD.setResizable(true);
+        divorciosCRUD.toFront();
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void DivorciosReporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DivorciosReporteActionPerformed
+        // TODO add your handling code here:
+          Connection conn = null;
+        PreparedStatement prepSt = null;
+        Statement st = null;
+        ResultSet rs = null;
+        try {
+            conn = getConnection("jdbc:postgresql://192.168.1.10:5432/alcaldiadb", "postgres", "root");
+        } catch (SQLException ex) {
+            showMessageDialog(this, "No hay conexion a server\n");
+        }
+        try {
+            JasperReport reporte = (JasperReport) loadObjectFromFile("Reportes\\Divorcios.jasper");
+            Map valores = new HashMap();
+//        valores.put ( "MES" , mes );
+//        valores.put ( "ANNO" , anno );
+//        valores.put ( "IDEMPRESA" , idEmpresa1 );
+        JasperPrint jasperPrint = fillReport(reporte, valores, conn);
+        JasperViewer viewer = new JasperViewer(jasperPrint, false);
+        viewer.toFront();
+        viewer.setTitle("Reporte Partidas de Divorcios");
+        viewer.setSize(900, 600);
+        viewer.setVisible(true);
+        } catch (JRException ex) {
+            showMessageDialog(this,"No encuentro archivo de Reporte");
+        }
+        try {
+            conn.close();
+        } catch (SQLException ex) {
+            showMessageDialog(this,"Error en Base de datos");
+        }
+    }//GEN-LAST:event_DivorciosReporteActionPerformed
 
     /**
      * @param args the command line arguments
@@ -726,11 +888,16 @@ public class Principal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem AdminUsuarios;
     private javax.swing.JMenu Administracion;
+    private javax.swing.JMenu Cedulas;
+    private javax.swing.JMenuItem CedulasCedulas;
+    private javax.swing.JMenuItem CedulasReporte;
+    private javax.swing.JMenuItem DefuncionesReporte;
+    private javax.swing.JMenu DivorciosDivorcios;
+    private javax.swing.JMenuItem DivorciosReporte;
     private javax.swing.JMenu Historicos;
     private javax.swing.JMenu Matrimonios;
     private javax.swing.JMenuItem MatrimoniosNuevos;
-    private javax.swing.JMenuItem MovAnuales;
-    private javax.swing.JMenuItem MovMensuales;
+    private javax.swing.JMenuItem MatrimoniosReporte;
     private javax.swing.JMenu Nacimientos;
     private javax.swing.JMenuItem NacimientosCrud;
     private javax.swing.JMenuItem Respaldos;
@@ -739,6 +906,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JMenuItem SistemaSalir;
     public javax.swing.JMenu Skin;
     public static javax.swing.JTextField campoUsuarioActivo;
+    private javax.swing.JMenuItem defuncionesDef;
     public static javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -747,9 +915,10 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JMenuItem nacidosReporte;
     private javax.swing.JMenuItem skin1;

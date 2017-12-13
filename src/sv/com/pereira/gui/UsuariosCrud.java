@@ -39,8 +39,8 @@ public class UsuariosCrud extends javax.swing.JInternalFrame {
         bindingGroup = new org.jdesktop.beansbinding.BindingGroup();
 
         GrupoBotones = new javax.swing.ButtonGroup();
-        ContadorPUEntityManager = java.beans.Beans.isDesignTime() ? null : javax.persistence.Persistence.createEntityManagerFactory("ContadorPU").createEntityManager();
-        usuariosQuery = java.beans.Beans.isDesignTime() ? null : ContadorPUEntityManager.createQuery("SELECT u FROM Usuarios u");
+        AlcaldiasPUEntityManager = java.beans.Beans.isDesignTime() ? null : javax.persistence.Persistence.createEntityManagerFactory("AlcaldiasPU").createEntityManager();
+        usuariosQuery = java.beans.Beans.isDesignTime() ? null : AlcaldiasPUEntityManager.createQuery("SELECT u FROM Usuarios u");
         usuariosList = java.beans.Beans.isDesignTime() ? java.util.Collections.emptyList() : usuariosQuery.getResultList();
         jLabel1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
@@ -334,7 +334,7 @@ public class UsuariosCrud extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnSalirActionPerformed
 
     private void btnProcesarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProcesarActionPerformed
-        EntityManagerFactory emf = createEntityManagerFactory("ContadorPU");
+        EntityManagerFactory emf = createEntityManagerFactory("AlcaldiasPU");
         EntityManager em = emf.createEntityManager();
         if(RadioButtonEliminar.isSelected()){
            int fila = tablaEmpleados.getSelectedRow();
@@ -493,7 +493,7 @@ TableRowSorter trs;
 
     private void tablaEmpleadosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaEmpleadosMouseClicked
         // TODO add your handling code here:
-        EntityManagerFactory emf = createEntityManagerFactory("ContadorPU");
+        EntityManagerFactory emf = createEntityManagerFactory("AlcaldiasPU");
         EntityManager em = emf.createEntityManager();
         int fila = tablaEmpleados.getSelectedRow();
         String id = tablaEmpleados.getValueAt(fila, 0).toString();
@@ -527,9 +527,9 @@ TableRowSorter trs;
     }//GEN-LAST:event_campoPass2KeyPressed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.persistence.EntityManager AlcaldiasPUEntityManager;
     private javax.swing.JTextField CampoNombreEmpleado;
     private javax.swing.JTextField CampoUser;
-    private javax.persistence.EntityManager ContadorPUEntityManager;
     private javax.swing.ButtonGroup GrupoBotones;
     private javax.swing.JRadioButton RadioButtonAgregar;
     private javax.swing.JRadioButton RadioButtonEliminar;
@@ -564,9 +564,9 @@ TableRowSorter trs;
 
     private void actualizarTabla() {
          bindingGroup = new org.jdesktop.beansbinding.BindingGroup();
-        ContadorPUEntityManager = isDesignTime() ? null : createEntityManagerFactory("ContadorPU").createEntityManager();
-        usuariosQuery = isDesignTime() ? null : ContadorPUEntityManager.createQuery("SELECT u FROM Usuarios u");
-        usuariosList = isDesignTime() ? emptyList() : usuariosQuery.getResultList();
+        AlcaldiasPUEntityManager = java.beans.Beans.isDesignTime() ? null : javax.persistence.Persistence.createEntityManagerFactory("AlcaldiasPU").createEntityManager();
+        usuariosQuery = java.beans.Beans.isDesignTime() ? null : AlcaldiasPUEntityManager.createQuery("SELECT u FROM Usuarios u");
+        usuariosList = java.beans.Beans.isDesignTime() ? java.util.Collections.emptyList() : usuariosQuery.getResultList();
         tablaEmpleados = new javax.swing.JTable();
         campoUsuario = new javax.swing.JTextField();
         tablaEmpleados.getTableHeader().setReorderingAllowed(false);

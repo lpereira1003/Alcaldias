@@ -8,6 +8,7 @@
     <class>pojos.Matrimonios</class>
     <class>pojos.Fallecidos</class>
     <class>pojos.Divorcios</class>
+    <class>pojos.Cedulas</class>
     <shared-cache-mode>NONE</shared-cache-mode>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://192.168.1.10:5432/alcaldiadb"/>

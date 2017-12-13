@@ -96,7 +96,6 @@ public class Principal extends javax.swing.JFrame {
         AdminUsuarios = new javax.swing.JMenuItem();
         Respaldos = new javax.swing.JMenuItem();
         Restauracion = new javax.swing.JMenuItem();
-        jMenu1 = new javax.swing.JMenu();
         Skin = new javax.swing.JMenu();
         skin1 = new javax.swing.JMenuItem();
         skin2 = new javax.swing.JMenuItem();
@@ -304,8 +303,10 @@ public class Principal extends javax.swing.JFrame {
 
         jMenuBar1.add(Matrimonios);
 
+        Historicos.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         Historicos.setText("Defunciones");
         Historicos.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        Historicos.setMaximumSize(new java.awt.Dimension(100, 32767));
         Historicos.setPreferredSize(new java.awt.Dimension(120, 20));
 
         defuncionesDef.setText("Defunciones");
@@ -326,7 +327,10 @@ public class Principal extends javax.swing.JFrame {
 
         jMenuBar1.add(Historicos);
 
+        DivorciosDivorcios.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         DivorciosDivorcios.setText("Divorcios");
+        DivorciosDivorcios.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        DivorciosDivorcios.setMaximumSize(new java.awt.Dimension(100, 32767));
 
         jMenuItem1.setText("Divorcios");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
@@ -346,12 +350,25 @@ public class Principal extends javax.swing.JFrame {
 
         jMenuBar1.add(DivorciosDivorcios);
 
+        Cedulas.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         Cedulas.setText("Cedulas");
+        Cedulas.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        Cedulas.setMaximumSize(new java.awt.Dimension(100, 32767));
 
         CedulasCedulas.setText("Cedulas");
+        CedulasCedulas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CedulasCedulasActionPerformed(evt);
+            }
+        });
         Cedulas.add(CedulasCedulas);
 
         CedulasReporte.setText("Reporte");
+        CedulasReporte.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CedulasReporteActionPerformed(evt);
+            }
+        });
         Cedulas.add(CedulasReporte);
 
         jMenuBar1.add(Cedulas);
@@ -361,6 +378,7 @@ public class Principal extends javax.swing.JFrame {
         Administracion.setDelay(100);
         Administracion.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         Administracion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Administracion.setMaximumSize(new java.awt.Dimension(110, 32767));
         Administracion.setPreferredSize(new java.awt.Dimension(120, 20));
 
         AdminUsuarios.setText("Usuarios");
@@ -393,12 +411,9 @@ public class Principal extends javax.swing.JFrame {
         });
         Administracion.add(Restauracion);
 
-        jMenu1.setText("jMenu1");
-        Administracion.add(jMenu1);
-
         jMenuBar1.add(Administracion);
 
-        Skin.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        Skin.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         Skin.setMnemonic('k');
         Skin.setText("Skin");
         Skin.setDelay(100);
@@ -457,9 +472,17 @@ public class Principal extends javax.swing.JFrame {
 
         jMenuBar1.add(Skin);
 
+        jMenu3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jMenu3.setText("Acerca de");
+        jMenu3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jMenu3.setMaximumSize(new java.awt.Dimension(100, 32767));
 
         jMenuItem2.setText("Pereira Computer Services");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
         jMenu3.add(jMenuItem2);
 
         jMenuBar1.add(jMenu3);
@@ -856,6 +879,63 @@ public class Principal extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_DivorciosReporteActionPerformed
 
+    private void CedulasCedulasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CedulasCedulasActionPerformed
+        // TODO add your handling code here:
+         CedulasCRUD cedulasCRUD = new CedulasCRUD();
+        jDesktopPane1.add(cedulasCRUD);
+        jDesktopPane1.getDesktopManager().maximizeFrame(cedulasCRUD);
+        cedulasCRUD.setVisible(true);
+        cedulasCRUD.setIconifiable(true);
+        cedulasCRUD.setMaximizable(true);
+        cedulasCRUD.setClosable(true);
+        cedulasCRUD.setResizable(true);
+        cedulasCRUD.toFront();
+    }//GEN-LAST:event_CedulasCedulasActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        // TODO add your handling code here:
+         acercaDe AcercaDe = new acercaDe();
+        jDesktopPane1.add(AcercaDe);
+        //jDesktopPane1.getDesktopManager().maximizeFrame(AcercaDe);
+        AcercaDe.setVisible(true);
+        AcercaDe.setIconifiable(true);
+        //AcercaDe.setMaximizable(true);
+        AcercaDe.setClosable(true);
+        //AcercaDe.setResizable(true);
+        AcercaDe.toFront();
+                
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void CedulasReporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CedulasReporteActionPerformed
+        // TODO add your handling code here:
+              Connection conn = null;
+        PreparedStatement prepSt = null;
+        Statement st = null;
+        ResultSet rs = null;
+        try {
+            conn = getConnection("jdbc:postgresql://192.168.1.10:5432/alcaldiadb", "postgres", "root");
+        } catch (SQLException ex) {
+            showMessageDialog(this, "No hay conexion a server\n");
+        }
+        try {
+            JasperReport reporte = (JasperReport) loadObjectFromFile("Reportes\\Cedulas.jasper");
+            Map valores = new HashMap();
+        JasperPrint jasperPrint = fillReport(reporte, valores, conn);
+        JasperViewer viewer = new JasperViewer(jasperPrint, false);
+        viewer.toFront();
+        viewer.setTitle("Reporte cedulas de Identidad");
+        viewer.setSize(900, 600);
+        viewer.setVisible(true);
+        } catch (JRException ex) {
+            showMessageDialog(this,"No encuentro archivo de Reporte");
+        }
+        try {
+            conn.close();
+        } catch (SQLException ex) {
+            showMessageDialog(this,"Error en Base de datos");
+        }
+    }//GEN-LAST:event_CedulasReporteActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -914,7 +994,6 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
